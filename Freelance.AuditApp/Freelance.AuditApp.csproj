@@ -193,7 +193,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data.Views.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -658,7 +657,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Content\tables.css" />
     <Content Include="Content\toastr.css">
-      <DependentUpon>toastr.less</DependentUpon>
+      <DependentUpon>toastr.scss</DependentUpon>
     </Content>
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\toastr\Gruntfile.js" />
