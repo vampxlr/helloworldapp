@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/29/2014 22:55:12
+-- Date Created: 05/30/2014 00:08:56
 -- Generated from EDMX file: J:\Git\Freelance.AuditApp\Freelance.AuditApp\Data.edmx
 -- --------------------------------------------------
 
@@ -17,6 +17,9 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK__UserProje__UserI__145C0A3F]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UserProjects] DROP CONSTRAINT [FK__UserProje__UserI__145C0A3F];
+GO
 IF OBJECT_ID(N'[dbo].[FK__AspectIte__Proje__22AA2996]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[AspectItems] DROP CONSTRAINT [FK__AspectIte__Proje__22AA2996];
 GO
@@ -29,16 +32,16 @@ GO
 IF OBJECT_ID(N'[dbo].[FK__UserProje__Proje__1367E606]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[UserProjects] DROP CONSTRAINT [FK__UserProje__Proje__1367E606];
 GO
-IF OBJECT_ID(N'[dbo].[FK__UserProje__UserI__145C0A3F]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserProjects] DROP CONSTRAINT [FK__UserProje__UserI__145C0A3F];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Actions]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Actions];
+IF OBJECT_ID(N'[dbo].[UserProjects]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserProjects];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 IF OBJECT_ID(N'[dbo].[AspectItems]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AspectItems];
@@ -46,17 +49,14 @@ GO
 IF OBJECT_ID(N'[dbo].[ProjectAspects]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProjectAspects];
 GO
-IF OBJECT_ID(N'[dbo].[Projects]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Projects];
+IF OBJECT_ID(N'[dbo].[Actions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Actions];
 GO
 IF OBJECT_ID(N'[dbo].[Results]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Results];
 GO
-IF OBJECT_ID(N'[dbo].[UserProjects]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserProjects];
-GO
-IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Users];
+IF OBJECT_ID(N'[dbo].[Projects]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Projects];
 GO
 
 -- --------------------------------------------------
