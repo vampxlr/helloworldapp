@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets9D1B99DA0EE547AA51E9249FE074A1C5914DC7B56EFB9EAB27CB36F04611F726))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets12734A17608CB57F254A2D2E934524F6160C912A7A6A862CCFDED74D5DE04FDC))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets9D1B99DA0EE547AA51E9249FE074A1C5914DC7B56EFB9EAB27CB36F04611F726 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets12734A17608CB57F254A2D2E934524F6160C912A7A6A862CCFDED74D5DE04FDC : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets9D1B99DA0EE547AA51E9249FE074A1C5914DC7B56EFB9EAB27CB36F04611F726()
+        public ViewsForBaseEntitySets12734A17608CB57F254A2D2E934524F6160C912A7A6A862CCFDED74D5DE04FDC()
         {
             this.EdmEntityContainerName = "AuditConnection";
             this.StoreEntityContainerName = "AuditStoreContainer";
-            this.HashOverMappingClosure = "6889c04c30c2f481babfa805ba4c5069437e00f6af7d250f42682e1ff7c7d43d";
-            this.HashOverAllExtentViews = "1db33df420f7dfc7a9c8dbd87c6cf61a463c750b71d379ff89d1eb74f0cce055";
+            this.HashOverMappingClosure = "d49cc8af4888c69e9f9b97768cd9657c7d392681d6105d3a829a7eb5e3f24f5b";
+            this.HashOverAllExtentViews = "529faaf19510ea40dff7d0b8151ef66c43509a9c66fd4a6c48ec4e7c3f0d98be";
             this.ViewCount = 14;
         }
         
@@ -140,12 +140,12 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("AuditStoreContainer.AspectItems", @"
     SELECT VALUE -- Constructing AspectItems
-        [Audit.Store.AspectItems](T1.AspectItems_AspectItemsID, T1.AspectItems_ProjectAspectID, T1.AspectItems_AspectItem)
+        [Audit.Store.AspectItems](T1.AspectItems_AspectItemsID, T1.AspectItems_ProjectAspectID, T1.AspectItems_AspectItem1)
     FROM (
         SELECT 
             T.AspectItemsID AS AspectItems_AspectItemsID, 
             T.ProjectAspectID AS AspectItems_ProjectAspectID, 
-            T.AspectItem1 AS AspectItems_AspectItem, 
+            T.AspectItem1 AS AspectItems_AspectItem1, 
             True AS _from0
         FROM AuditConnection.AspectItems AS T
     ) AS T1");
@@ -242,7 +242,7 @@ namespace Edm_EntityMappingGeneratedViews
         SELECT 
             T.AspectItemsID AS AspectItem_AspectItemsID, 
             T.ProjectAspectID AS AspectItem_ProjectAspectID, 
-            T.AspectItem AS AspectItem_AspectItem1, 
+            T.AspectItem1 AS AspectItem_AspectItem1, 
             True AS _from0
         FROM AuditStoreContainer.AspectItems AS T
     ) AS T1");

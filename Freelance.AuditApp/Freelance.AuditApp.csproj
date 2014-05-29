@@ -674,7 +674,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Content\tables.css" />
     <Content Include="Content\toastr.css">
-      <DependentUpon>toastr.scss</DependentUpon>
+      <DependentUpon>toastr.less</DependentUpon>
     </Content>
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\toastr\Gruntfile.js" />
@@ -690,6 +690,7 @@
     <Content Include="Content\tooltip\jquery.qtip.js" />
     <Content Include="Content\tooltip\jquery.qtip.min.css" />
     <Content Include="Content\tooltip\jquery.qtip.min.js" />
+    <Content Include="Data.edmx.sql" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

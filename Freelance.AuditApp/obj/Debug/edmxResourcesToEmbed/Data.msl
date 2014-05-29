@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AuditStoreContainer" CdmEntityContainer="AuditConnection">
     <EntitySetMapping Name="UserProjects">
-      <EntityTypeMapping TypeName="Audit.UserProject">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.UserProject)">
         <MappingFragment StoreEntitySet="UserProjects">
           <ScalarProperty Name="UserProjectId" ColumnName="UserProjectId" />
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="Audit.User">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -21,70 +21,70 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspectItems">
-      <EntityTypeMapping TypeName="Audit.AspectItem">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.AspectItem)">
         <MappingFragment StoreEntitySet="AspectItems">
-          <ScalarProperty Name="AspectItem1" ColumnName="AspectItem" />
-          <ScalarProperty Name="ProjectAspectID" ColumnName="ProjectAspectID" />
           <ScalarProperty Name="AspectItemsID" ColumnName="AspectItemsID" />
+          <ScalarProperty Name="ProjectAspectID" ColumnName="ProjectAspectID" />
+          <ScalarProperty Name="AspectItem1" ColumnName="AspectItem1" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProjectAspects">
-      <EntityTypeMapping TypeName="Audit.ProjectAspect">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.ProjectAspect)">
         <MappingFragment StoreEntitySet="ProjectAspects">
-          <ScalarProperty Name="Aspect" ColumnName="Aspect" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="ProjectAspectsID" ColumnName="ProjectAspectsID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Aspect" ColumnName="Aspect" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Actions">
-      <EntityTypeMapping TypeName="Audit.Action">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Action)">
         <MappingFragment StoreEntitySet="Actions">
-          <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
-          <ScalarProperty Name="ClosedFile" ColumnName="ClosedFile" />
-          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
-          <ScalarProperty Name="ClosedReason" ColumnName="ClosedReason" />
-          <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
-          <ScalarProperty Name="UploadedFile" ColumnName="UploadedFile" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-          <ScalarProperty Name="Priority" ColumnName="Priority" />
-          <ScalarProperty Name="Closed" ColumnName="Closed" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
           <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UploadedFile" ColumnName="UploadedFile" />
+          <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
+          <ScalarProperty Name="ClosedReason" ColumnName="ClosedReason" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ClosedFile" ColumnName="ClosedFile" />
+          <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Results">
-      <EntityTypeMapping TypeName="Audit.Result">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Result)">
         <MappingFragment StoreEntitySet="Results">
-          <ScalarProperty Name="DateRecorded" ColumnName="DateRecorded" />
-          <ScalarProperty Name="AuditGuid" ColumnName="AuditGuid" />
-          <ScalarProperty Name="WeatherObservations" ColumnName="WeatherObservations" />
-          <ScalarProperty Name="Auditees" ColumnName="Auditees" />
-          <ScalarProperty Name="ConductedBy" ColumnName="ConductedBy" />
-          <ScalarProperty Name="Satisfactory" ColumnName="Satisfactory" />
-          <ScalarProperty Name="ObservationalComment" ColumnName="ObservationalComment" />
-          <ScalarProperty Name="AspectItem" ColumnName="AspectItem" />
-          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
           <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="AspectItem" ColumnName="AspectItem" />
+          <ScalarProperty Name="ObservationalComment" ColumnName="ObservationalComment" />
+          <ScalarProperty Name="Satisfactory" ColumnName="Satisfactory" />
+          <ScalarProperty Name="ConductedBy" ColumnName="ConductedBy" />
+          <ScalarProperty Name="Auditees" ColumnName="Auditees" />
+          <ScalarProperty Name="WeatherObservations" ColumnName="WeatherObservations" />
+          <ScalarProperty Name="AuditGuid" ColumnName="AuditGuid" />
+          <ScalarProperty Name="DateRecorded" ColumnName="DateRecorded" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Projects">
-      <EntityTypeMapping TypeName="Audit.Project">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Project)">
         <MappingFragment StoreEntitySet="Projects">
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="RosterBreak" ColumnName="RosterBreak" />
-          <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="RosterWork" ColumnName="RosterWork" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RosterWork" ColumnName="RosterWork" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
+          <ScalarProperty Name="RosterBreak" ColumnName="RosterBreak" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

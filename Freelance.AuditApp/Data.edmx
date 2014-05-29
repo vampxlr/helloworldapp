@@ -5,176 +5,176 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Audit.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="AuditStoreContainer">
-          <EntitySet Name="Actions" EntityType="Audit.Store.Actions" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="AspectItems" EntityType="Audit.Store.AspectItems" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProjectAspects" EntityType="Audit.Store.ProjectAspects" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Projects" EntityType="Audit.Store.Projects" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Results" EntityType="Audit.Store.Results" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UserProjects" EntityType="Audit.Store.UserProjects" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Users" EntityType="Audit.Store.Users" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__AspectIte__Proje__22AA2996" Association="Audit.Store.FK__AspectIte__Proje__22AA2996">
-            <End Role="ProjectAspects" EntitySet="ProjectAspects" />
-            <End Role="AspectItems" EntitySet="AspectItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProjectAs__Proje__1920BF5C" Association="Audit.Store.FK__ProjectAs__Proje__1920BF5C">
-            <End Role="Projects" EntitySet="Projects" />
-            <End Role="ProjectAspects" EntitySet="ProjectAspects" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Projects__Create__0EA330E9" Association="Audit.Store.FK__Projects__Create__0EA330E9">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Projects" EntitySet="Projects" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserProje__Proje__1367E606" Association="Audit.Store.FK__UserProje__Proje__1367E606">
-            <End Role="Projects" EntitySet="Projects" />
-            <End Role="UserProjects" EntitySet="UserProjects" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserProje__UserI__145C0A3F" Association="Audit.Store.FK__UserProje__UserI__145C0A3F">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="UserProjects" EntitySet="UserProjects" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Actions">
-          <Key>
-            <PropertyRef Name="ActionId" />
-          </Key>
-          <Property Name="ActionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="int" />
-          <Property Name="CreatedBy" Type="int" />
-          <Property Name="Closed" Type="bit" />
-          <Property Name="Priority" Type="varchar" MaxLength="10" />
-          <Property Name="DueDate" Type="datetime" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UploadedFile" Type="varbinary" MaxLength="50" />
-          <Property Name="ActionDescription" Type="varchar(max)" />
-          <Property Name="ClosedReason" Type="varchar(max)" />
-          <Property Name="ClosedDate" Type="smalldatetime" />
-          <Property Name="ClosedFile" Type="varbinary" MaxLength="50" />
-          <Property Name="RaisedBy" Type="varchar(max)" />
-        </EntityType>
-        <EntityType Name="AspectItems">
-          <Key>
-            <PropertyRef Name="AspectItemsID" />
-          </Key>
-          <Property Name="AspectItemsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectAspectID" Type="int" />
-          <Property Name="AspectItem" Type="varchar" MaxLength="2000" />
-        </EntityType>
-        <EntityType Name="ProjectAspects">
-          <Key>
-            <PropertyRef Name="ProjectAspectsID" />
-          </Key>
-          <Property Name="ProjectAspectsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectID" Type="int" />
-          <Property Name="Aspect" Type="varchar" MaxLength="1400" />
-        </EntityType>
-        <EntityType Name="Projects">
-          <Key>
-            <PropertyRef Name="ProjectId" />
-          </Key>
-          <Property Name="ProjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectName" Type="varchar" MaxLength="200" />
-          <Property Name="CreatedBy" Type="int" />
-          <Property Name="RosterWork" Type="varchar" MaxLength="200" />
-          <Property Name="Location" Type="varchar" MaxLength="200" />
-          <Property Name="ProjectNumber" Type="varchar" MaxLength="200" />
-          <Property Name="RosterBreak" Type="nchar" MaxLength="10" />
-          <Property Name="StartDate" Type="datetime" />
-          <Property Name="Duration" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Results">
-          <Key>
-            <PropertyRef Name="ResultID" />
-          </Key>
-          <Property Name="ResultID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="int" />
-          <Property Name="AspectItem" Type="int" />
-          <Property Name="ObservationalComment" Type="varchar(max)" />
-          <Property Name="Satisfactory" Type="varchar(max)" />
-          <Property Name="ConductedBy" Type="varchar" MaxLength="200" />
-          <Property Name="Auditees" Type="varchar(max)" />
-          <Property Name="WeatherObservations" Type="varchar(max)" />
-          <Property Name="AuditGuid" Type="varchar(max)" />
-          <Property Name="DateRecorded" Type="datetime" />
-        </EntityType>
-        <EntityType Name="UserProjects">
-          <Key>
-            <PropertyRef Name="UserProjectId" />
-          </Key>
-          <Property Name="UserProjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectId" Type="int" />
-          <Property Name="UserId" Type="int" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="varchar" MaxLength="125" />
-          <Property Name="UserPassword" Type="varchar" MaxLength="125" />
-          <Property Name="UserRole" Type="varchar" MaxLength="125" />
-        </EntityType>
-        <Association Name="FK__AspectIte__Proje__22AA2996">
-          <End Role="ProjectAspects" Type="Audit.Store.ProjectAspects" Multiplicity="0..1" />
-          <End Role="AspectItems" Type="Audit.Store.AspectItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProjectAspects">
-              <PropertyRef Name="ProjectAspectsID" />
-            </Principal>
-            <Dependent Role="AspectItems">
-              <PropertyRef Name="ProjectAspectID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ProjectAs__Proje__1920BF5C">
-          <End Role="Projects" Type="Audit.Store.Projects" Multiplicity="0..1" />
-          <End Role="ProjectAspects" Type="Audit.Store.ProjectAspects" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Projects">
-              <PropertyRef Name="ProjectId" />
-            </Principal>
-            <Dependent Role="ProjectAspects">
-              <PropertyRef Name="ProjectID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Projects__Create__0EA330E9">
-          <End Role="Users" Type="Audit.Store.Users" Multiplicity="0..1" />
-          <End Role="Projects" Type="Audit.Store.Projects" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Projects">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserProje__Proje__1367E606">
-          <End Role="Projects" Type="Audit.Store.Projects" Multiplicity="0..1" />
-          <End Role="UserProjects" Type="Audit.Store.UserProjects" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Projects">
-              <PropertyRef Name="ProjectId" />
-            </Principal>
-            <Dependent Role="UserProjects">
-              <PropertyRef Name="ProjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserProje__UserI__145C0A3F">
-          <End Role="Users" Type="Audit.Store.Users" Multiplicity="0..1" />
-          <End Role="UserProjects" Type="Audit.Store.UserProjects" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserProjects">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="AuditStoreContainer">
+    <EntitySet Name="UserProjects" EntityType="Audit.Store.UserProjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="Audit.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspectItems" EntityType="Audit.Store.AspectItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectAspects" EntityType="Audit.Store.ProjectAspects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Actions" EntityType="Audit.Store.Actions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Results" EntityType="Audit.Store.Results" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projects" EntityType="Audit.Store.Projects" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__UserProje__UserI__145C0A3F" Association="Audit.Store.FK__UserProje__UserI__145C0A3F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserProjects" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspectIte__Proje__22AA2996" Association="Audit.Store.FK__AspectIte__Proje__22AA2996">
+      <End Role="ProjectAspect" EntitySet="ProjectAspects" />
+      <End Role="AspectItem" EntitySet="AspectItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjectAs__Proje__1920BF5C" Association="Audit.Store.FK__ProjectAs__Proje__1920BF5C">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectAspect" EntitySet="ProjectAspects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Create__0EA330E9" Association="Audit.Store.FK__Projects__Create__0EA330E9">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProje__Proje__1367E606" Association="Audit.Store.FK__UserProje__Proje__1367E606">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="UserProject" EntitySet="UserProjects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserProjects">
+    <Key>
+      <PropertyRef Name="UserProjectId" />
+    </Key>
+    <Property Name="UserProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="true" />
+    <Property Name="UserId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" Nullable="true" MaxLength="125" />
+    <Property Name="UserPassword" Type="varchar" Nullable="true" MaxLength="125" />
+    <Property Name="UserRole" Type="varchar" Nullable="true" MaxLength="125" />
+  </EntityType>
+  <EntityType Name="AspectItems">
+    <Key>
+      <PropertyRef Name="AspectItemsID" />
+    </Key>
+    <Property Name="AspectItemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectAspectID" Type="int" Nullable="true" />
+    <Property Name="AspectItem1" Type="varchar" Nullable="true" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="ProjectAspects">
+    <Key>
+      <PropertyRef Name="ProjectAspectsID" />
+    </Key>
+    <Property Name="ProjectAspectsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="true" />
+    <Property Name="Aspect" Type="varchar" Nullable="true" MaxLength="1400" />
+  </EntityType>
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="true" />
+    <Property Name="CreatedBy" Type="int" Nullable="true" />
+    <Property Name="Closed" Type="bit" Nullable="true" />
+    <Property Name="Priority" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="DueDate" Type="datetime" Nullable="true" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="true" />
+    <Property Name="UploadedFile" Type="varbinary" Nullable="true" MaxLength="50" />
+    <Property Name="ActionDescription" Type="varchar(max)" Nullable="true" />
+    <Property Name="ClosedReason" Type="varchar(max)" Nullable="true" />
+    <Property Name="ClosedDate" Type="datetime" Nullable="true" />
+    <Property Name="ClosedFile" Type="varbinary" Nullable="true" MaxLength="50" />
+    <Property Name="RaisedBy" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Results">
+    <Key>
+      <PropertyRef Name="ResultID" />
+    </Key>
+    <Property Name="ResultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="true" />
+    <Property Name="AspectItem" Type="int" Nullable="true" />
+    <Property Name="ObservationalComment" Type="varchar(max)" Nullable="true" />
+    <Property Name="Satisfactory" Type="varchar(max)" Nullable="true" />
+    <Property Name="ConductedBy" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="Auditees" Type="varchar(max)" Nullable="true" />
+    <Property Name="WeatherObservations" Type="varchar(max)" Nullable="true" />
+    <Property Name="AuditGuid" Type="varchar(max)" Nullable="true" />
+    <Property Name="DateRecorded" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="CreatedBy" Type="int" Nullable="true" />
+    <Property Name="RosterWork" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="Location" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="ProjectNumber" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="RosterBreak" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="Duration" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__UserProje__UserI__145C0A3F">
+    <End Role="Users" Type="Audit.Store.Users" Multiplicity="0..1" />
+    <End Role="UserProjects" Type="Audit.Store.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserProjects">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspectIte__Proje__22AA2996">
+    <End Role="ProjectAspect" Type="Audit.Store.ProjectAspects" Multiplicity="0..1" />
+    <End Role="AspectItem" Type="Audit.Store.AspectItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectAspect">
+        <PropertyRef Name="ProjectAspectsID" />
+      </Principal>
+      <Dependent Role="AspectItem">
+        <PropertyRef Name="ProjectAspectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjectAs__Proje__1920BF5C">
+    <End Role="Project" Type="Audit.Store.Projects" Multiplicity="0..1" />
+    <End Role="ProjectAspect" Type="Audit.Store.ProjectAspects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectAspect">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Create__0EA330E9">
+    <End Role="User" Type="Audit.Store.Users" Multiplicity="0..1" />
+    <End Role="Project" Type="Audit.Store.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProje__Proje__1367E606">
+    <End Role="Project" Type="Audit.Store.Projects" Multiplicity="0..1" />
+    <End Role="UserProject" Type="Audit.Store.UserProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="UserProject">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Audit" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -361,98 +361,97 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AuditStoreContainer" CdmEntityContainer="AuditConnection">
-          <EntitySetMapping Name="UserProjects">
-            <EntityTypeMapping TypeName="Audit.UserProject">
-              <MappingFragment StoreEntitySet="UserProjects">
-                <ScalarProperty Name="UserProjectId" ColumnName="UserProjectId" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Audit.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspectItems">
-            <EntityTypeMapping TypeName="Audit.AspectItem">
-              <MappingFragment StoreEntitySet="AspectItems">
-                <ScalarProperty Name="AspectItem1" ColumnName="AspectItem" />
-                <ScalarProperty Name="ProjectAspectID" ColumnName="ProjectAspectID" />
-                <ScalarProperty Name="AspectItemsID" ColumnName="AspectItemsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProjectAspects">
-            <EntityTypeMapping TypeName="Audit.ProjectAspect">
-              <MappingFragment StoreEntitySet="ProjectAspects">
-                <ScalarProperty Name="Aspect" ColumnName="Aspect" />
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-                <ScalarProperty Name="ProjectAspectsID" ColumnName="ProjectAspectsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Actions">
-            <EntityTypeMapping TypeName="Audit.Action">
-              <MappingFragment StoreEntitySet="Actions">
-                <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
-                <ScalarProperty Name="ClosedFile" ColumnName="ClosedFile" />
-                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
-                <ScalarProperty Name="ClosedReason" ColumnName="ClosedReason" />
-                <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
-                <ScalarProperty Name="UploadedFile" ColumnName="UploadedFile" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="Closed" ColumnName="Closed" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="ActionId" ColumnName="ActionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Results">
-            <EntityTypeMapping TypeName="Audit.Result">
-              <MappingFragment StoreEntitySet="Results">
-                <ScalarProperty Name="DateRecorded" ColumnName="DateRecorded" />
-                <ScalarProperty Name="AuditGuid" ColumnName="AuditGuid" />
-                <ScalarProperty Name="WeatherObservations" ColumnName="WeatherObservations" />
-                <ScalarProperty Name="Auditees" ColumnName="Auditees" />
-                <ScalarProperty Name="ConductedBy" ColumnName="ConductedBy" />
-                <ScalarProperty Name="Satisfactory" ColumnName="Satisfactory" />
-                <ScalarProperty Name="ObservationalComment" ColumnName="ObservationalComment" />
-                <ScalarProperty Name="AspectItem" ColumnName="AspectItem" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Projects">
-            <EntityTypeMapping TypeName="Audit.Project">
-              <MappingFragment StoreEntitySet="Projects">
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="RosterBreak" ColumnName="RosterBreak" />
-                <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="RosterWork" ColumnName="RosterWork" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AuditStoreContainer" CdmEntityContainer="AuditConnection">
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.UserProject)">
+        <MappingFragment StoreEntitySet="UserProjects">
+          <ScalarProperty Name="UserProjectId" ColumnName="UserProjectId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspectItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.AspectItem)">
+        <MappingFragment StoreEntitySet="AspectItems">
+          <ScalarProperty Name="AspectItemsID" ColumnName="AspectItemsID" />
+          <ScalarProperty Name="ProjectAspectID" ColumnName="ProjectAspectID" />
+          <ScalarProperty Name="AspectItem1" ColumnName="AspectItem1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectAspects">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.ProjectAspect)">
+        <MappingFragment StoreEntitySet="ProjectAspects">
+          <ScalarProperty Name="ProjectAspectsID" ColumnName="ProjectAspectsID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Aspect" ColumnName="Aspect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Action)">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UploadedFile" ColumnName="UploadedFile" />
+          <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
+          <ScalarProperty Name="ClosedReason" ColumnName="ClosedReason" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ClosedFile" ColumnName="ClosedFile" />
+          <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Result)">
+        <MappingFragment StoreEntitySet="Results">
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="AspectItem" ColumnName="AspectItem" />
+          <ScalarProperty Name="ObservationalComment" ColumnName="ObservationalComment" />
+          <ScalarProperty Name="Satisfactory" ColumnName="Satisfactory" />
+          <ScalarProperty Name="ConductedBy" ColumnName="ConductedBy" />
+          <ScalarProperty Name="Auditees" ColumnName="Auditees" />
+          <ScalarProperty Name="WeatherObservations" ColumnName="WeatherObservations" />
+          <ScalarProperty Name="AuditGuid" ColumnName="AuditGuid" />
+          <ScalarProperty Name="DateRecorded" ColumnName="DateRecorded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IsTypeOf(Audit.Project)">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RosterWork" ColumnName="RosterWork" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
+          <ScalarProperty Name="RosterBreak" ColumnName="RosterBreak" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -467,6 +466,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
