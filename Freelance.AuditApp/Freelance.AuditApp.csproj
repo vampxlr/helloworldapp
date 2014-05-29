@@ -674,7 +674,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Content\tables.css" />
     <Content Include="Content\toastr.css">
-      <DependentUpon>toastr.scss</DependentUpon>
+      <DependentUpon>toastr.less</DependentUpon>
     </Content>
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\toastr\Gruntfile.js" />
