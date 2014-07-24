@@ -147,27 +147,39 @@ namespace Freelance.AuditApp.Controllers
         }
 
 
-        [System.Web.Http.HttpGet]  
+        [System.Web.Http.HttpGet]
         public IEnumerable<ProjectAspectViewModel> getAspectByProjectId(int id)
         {
             var service = new AuditService();
             Project project = service.GetProject(id);
-            IEnumerable<ProjectAspectViewModel> projectAspect = from U in project.ProjectAspects
-                                                                select new ProjectAspectViewModel
-                                                                {
-                                                                    AspectName = U.Aspect,
-                                                                    ProjectAspectsID = U.ProjectAspectsID,
-                                                                    ProjectID = U.ProjectID,
-                                                                    AspectItems = from x in U.AspectItems
-                                                                                  select new AspectItemViewModel { 
-                                                                                  AspectItem = x.AspectItem1,
-                                                                                  AspectItemsID = x.AspectItemsID,
-                                                                                  ProjectAspectID = x.ProjectAspectID
-                                                                                  }
-                                                                };
 
-            
-            return projectAspect;
+            try
+            {
+                IEnumerable<ProjectAspectViewModel> projectAspect = from U in project.ProjectAspects
+                                                                    select new ProjectAspectViewModel
+                                                                    {
+                                                                        AspectName = U.Aspect,
+                                                                        ProjectAspectsID = U.ProjectAspectsID,
+                                                                        ProjectID = U.ProjectID,
+                                                                        AspectItems = from x in U.AspectItems
+                                                                                      select new AspectItemViewModel
+                                                                                      {
+                                                                                          AspectItem = x.AspectItem1,
+                                                                                          AspectItemsID = x.AspectItemsID,
+                                                                                          ProjectAspectID = x.ProjectAspectID
+                                                                                      }
+                                                                    };
+                return projectAspect;
+            }
+            catch (Exception e )
+            {
+                
+                throw e;
+            }
+
+           // IEnumerable<ProjectAspectViewModel> sprojectAspect;
+
+         
         }
 
         [System.Web.Http.HttpGet]
