@@ -100,13 +100,13 @@ namespace Freelance.AuditApp.Controllers
            
             }
           [System.Web.Http.HttpDelete]
-          public bool removeuser(int id)
-          {
-              var service = new AuditService();
-              service.RemoveUser(id);
-              return true;
+          //public bool removeuser(int id)
+          //{
+          //    var service = new AuditService();
+          //    service.RemoveUser(id);
+          //    return true;
 
-          }
+          //}
 
           [System.Web.Http.HttpPost]
           public bool AddUserToProject(UserToProjectViewModel UserToProject)
@@ -517,7 +517,7 @@ namespace Freelance.AuditApp.Controllers
                           sl.SetCellValue(count, 1, item.ActionDescription);
                           sl.SetCellValue(count, 2, item.ProjectId.ToString());
                           sl.SetCellValue(count, 3, item.RaisedBy.ToString());
-                          sl.SetCellValue(count, 4, item.CreatedBy.ToString());
+                          sl.SetCellValue(count, 4, item.CreatedBy.ToString()); 
                           sl.SetCellValue(count, 5, item.ActionId);
                           sl.SetCellValue(count, 6, item.Closed.ToString());
                           sl.SetCellValue(count, 7, item.ClosedDate.ToString());

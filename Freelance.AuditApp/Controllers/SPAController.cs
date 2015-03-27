@@ -35,7 +35,7 @@ namespace Freelance.AuditApp.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            return View();
+            return View("new_login");
         }
         [HttpPost]
         public ActionResult Login(string username,string password)
