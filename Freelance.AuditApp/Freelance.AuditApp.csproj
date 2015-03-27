@@ -2833,7 +2833,6 @@
     <None Include="Properties\PublishProfiles\AuditPublish.pubxml" />
     <Content Include="Views\Login\PartialEditProject.cshtml" />
     <Content Include="Views\Login\Indexes.cshtml" />
-    <Content Include="Views\SPA\sLogin.cshtml" />
     <Content Include="Views\SPA\Index.cshtml" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
