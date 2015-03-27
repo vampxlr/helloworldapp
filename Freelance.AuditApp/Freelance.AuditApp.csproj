@@ -2302,7 +2302,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
-    <None Include="Views\SPA\new_login.cshtml" />
+    <None Include="Views\SPA\Login.cshtml" />
     <Content Include="Views\SPA\Test.cshtml" />
     <Content Include="Content\jquery-ui\development-bundle\package.json" />
     <Content Include="Content\jquery-ui\development-bundle\README.md" />
@@ -2833,7 +2833,7 @@
     <None Include="Properties\PublishProfiles\AuditPublish.pubxml" />
     <Content Include="Views\Login\PartialEditProject.cshtml" />
     <Content Include="Views\Login\Indexes.cshtml" />
-    <Content Include="Views\SPA\Login.cshtml" />
+    <Content Include="Views\SPA\sLogin.cshtml" />
     <Content Include="Views\SPA\Index.cshtml" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
