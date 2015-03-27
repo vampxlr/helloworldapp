@@ -2302,7 +2302,6 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
-    <None Include="Views\SPA\Login.cshtml" />
     <Content Include="Views\SPA\Test.cshtml" />
     <Content Include="Content\jquery-ui\development-bundle\package.json" />
     <Content Include="Content\jquery-ui\development-bundle\README.md" />
@@ -2679,6 +2678,9 @@
     <Content Include="Content\NewLogin\vendor\plugins\slick\fonts\slick.eot" />
     <Content Include="Content\NewLogin\vendor\plugins\slick\fonts\slick.ttf" />
     <Content Include="Content\NewLogin\vendor\plugins\slick\fonts\slick.woff" />
+    <Content Include="Views\SPA\Login.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
